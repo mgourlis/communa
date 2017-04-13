@@ -1,6 +1,7 @@
 package gr.nsyriza.computerization.domain;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,5 +18,6 @@ public class Group {
     @Column(name = "groupName")
     private String groupName;
 
-    private List<Member> members
+    @ManyToMany(mappedBy="memberGroups")
+    private List<Member> groupMembers = new ArrayList<Member>();
 }
